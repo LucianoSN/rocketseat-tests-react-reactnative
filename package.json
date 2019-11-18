@@ -16,12 +16,12 @@
     "prettier": "prettier --write **/*.{ts,js,css,html}"
   },
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
     "setupFilesAfterEnv": [
       "@testing-library/react/cleanup-after-each",
       "@testing-library/jest-dom/extend-expect"
-    ],
-    "testMatch": [
-      "**/__tests__/**/*.test.js"
     ],
     "moduleNameMapper": {
       "^~/(.*)": "<rootDir>/src/$1"
