@@ -1,8 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const TechList = () => {
 	const [techs, setTechs] = useState([]);
 	const [newTech, setNewTech] = useState([]);
+
+	useEffect(() => {
+		const storage = localStorage.getItem('techs');
+
+		if (storage) {
+			setTechs(JSON.parse(storage));
+		}
+	}, []);
+
+	useEffect(() => {
+		localStorage.setItem('techs', JSON.stringify(techs));
+	}, [techs]);
 
 	const handleAddTech = () => {
 		setTechs([...techs, newTech]);
